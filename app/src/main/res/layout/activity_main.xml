@@ -5,48 +5,116 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DFEDF8"
+    android:background="@drawable/backgroundhomepage"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/caixaBorda"
-        android:layout_width="416dp"
-        android:layout_height="297dp"
+        android:layout_width="340dp"
+
+        android:layout_height="238dp"
+        android:layout_marginTop="28dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/london"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="2dp" />
+        tools:ignore="MissingConstraints" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="410dp"
-        android:layout_height="82dp"
-        app:cardBackgroundColor="#2196F3"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixaBorda">
+        app:layout_constraintTop_toBottomOf="@+id/caixaBorda"
+        app:srcCompat="@drawable/campoembranco" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="69dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="414dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="251dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="10dp"
-                android:text="Bem Vindo(a)!"
-                android:textColor="#FBF7F7"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="164dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="218dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Bem-Vindo(a)!"
+            android:textAlignment="viewStart"
+            android:textColor="#1F1F1F"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="209dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/combustivelicone" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="211dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/dolaricone" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="300dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="65dp"
+            android:background="@drawable/background_buttongreen"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Anotações"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/open_sans_medium"
+            android:text="Selecione a opção desejada"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
