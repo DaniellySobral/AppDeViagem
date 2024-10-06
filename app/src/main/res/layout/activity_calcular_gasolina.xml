@@ -9,9 +9,9 @@
     tools:context=".CalcularGasolina">
 
     <ImageButton
-        android:id="@+id/voltarRoxo"
+        android:id="@+id/botaoVoltar"
         android:layout_width="59dp"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="#724EA5"
@@ -25,7 +25,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="260dp"
         android:fontFamily="@font/open_sans_medium"
         android:text="Calcule o preço médio da viagem de\n carro inserindo os valores abaixo."
         android:textAlignment="center"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTextDistancia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -53,7 +53,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editTextText1"
+        android:id="@+id/editTextConsumo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -65,11 +65,11 @@
         android:textColorHint="#BAB9B9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDistancia"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/editTextPreco"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -81,11 +81,11 @@
         android:textColorHint="#BAB9B9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText1"
+        app:layout_constraintTop_toBottomOf="@+id/editTextConsumo"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/botaoCalcule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -97,12 +97,12 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPreco" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textoResult"
         android:layout_width="0dp"
-        android:layout_height="41dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="40dp"
@@ -113,7 +113,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/botaoCalcule" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

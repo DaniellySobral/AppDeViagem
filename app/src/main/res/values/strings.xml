@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">testeTravelApp</string>
+
+    <string name="linkCambio">
+        <u>Confira a Taxa de Câmbio aqui.</u>.
+    </string>
 </resources>

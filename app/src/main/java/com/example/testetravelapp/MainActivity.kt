@@ -3,9 +3,11 @@ package com.example.testetravelapp
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,8 +28,11 @@ class MainActivity : AppCompatActivity() {
         R.drawable.notredame
 
     )
-
     private var indexAtual = 0
+
+    lateinit var botaoAnotacao: Button
+    lateinit var converterMoeda: ImageView
+    lateinit var calcularCombustivel: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +69,23 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        converterMoeda = findViewById(R.id.converterMoeda)
+        calcularCombustivel = findViewById(R.id.calcularCombustivel)
+        botaoAnotacao = findViewById(R.id.botaoAnotacao)
+
+        converterMoeda.setOnClickListener {
+            val intent = Intent(applicationContext, CalcularDolar::class.java)
+
+            startActivity(intent)
+
+        }
+
+        calcularCombustivel.setOnClickListener {
+            val intent = Intent(applicationContext, CalcularGasolina::class.java)
+
+            startActivity(intent)
+
+        }
 
     }
 }
