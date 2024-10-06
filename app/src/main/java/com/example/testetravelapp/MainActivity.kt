@@ -13,12 +13,14 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.HtmlCompat
 import androidx.core.text.buildSpannedString
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -33,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         R.drawable.japan,
         R.drawable.balao,
         R.drawable.notredame
-
     )
     private var indexAtual = 0
 
@@ -49,22 +50,6 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val textoLink = findViewById<TextView>(R.id.linkTexto)
-
-        val textoCompleto = textoLink.text.toString()
-        val colocandoLink = SpannableString(textoCompleto)
-
-        val textoClicavel = object : ClickableSpan(){
-            override fun onClick(widget: View) {
-               val executaIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ipeadata.gov.br/ExibeSerie.aspx?stub=1&serid=38590&module=M"))
-                startActivity(executaIntent)
-            }
-        }
-
-        colocandoLink.setSpan(textoClicavel, 20, 41, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-        textoLink.text = colocandoLink
-        textoLink.movementMethod = LinkMovementMethod.getInstance()
 
         val caixaImagens = findViewById<ImageView>(R.id.caixaBorda)
         lidarAnimacao = Handler(Looper.getMainLooper())
