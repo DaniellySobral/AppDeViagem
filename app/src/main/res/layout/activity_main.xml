@@ -11,7 +11,6 @@
     <ImageView
         android:id="@+id/caixaBorda"
         android:layout_width="340dp"
-
         android:layout_height="238dp"
         android:layout_marginTop="28dp"
         android:scaleType="centerCrop"
