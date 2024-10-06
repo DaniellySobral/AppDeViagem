@@ -19,13 +19,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/homeAsUpIndicator"
-        tools:ignore="SpeakableTextPresentCheck,UseAppTint" />
+        tools:ignore="SpeakableTextPresentCheck,UseAppTint,TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="235dp"
         android:fontFamily="@font/open_sans_medium"
         android:text="Calcule o preço médio da viagem de\n carro inserindo os valores abaixo."
         android:textAlignment="center"
@@ -45,7 +45,7 @@
         android:background="@drawable/background_edit_text"
         android:ems="10"
         android:hint="Distância (km) Ex: 100..."
-        android:inputType="text"
+        android:inputType="number"
         android:textColorHint="#BAB9B9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,6 +65,7 @@
         android:textColorHint="#BAB9B9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:inputType="number"
         app:layout_constraintTop_toBottomOf="@+id/editTextDistancia"
         tools:ignore="TouchTargetSizeCheck" />
 
@@ -82,13 +83,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextConsumo"
+        android:inputType="numberDecimal"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <CheckBox
+        android:id="@+id/checkBoxCaminhoVolta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Incluir caminho de volta?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPreco"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/botaoCalcule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/button_roxo"
         android:fontFamily="@font/open_sans_bold"
         android:text="CALCULAR"
@@ -97,7 +111,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPreco" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxCaminhoVolta" />
 
     <TextView
         android:id="@+id/textoResult"

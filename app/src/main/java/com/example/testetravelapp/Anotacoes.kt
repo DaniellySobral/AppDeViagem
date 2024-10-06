@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,11 +14,12 @@ import androidx.core.view.WindowInsetsCompat
 
 class Anotacoes : AppCompatActivity() {
 
-    private lateinit var editTextTask: EditText
-    private lateinit var buttonAddTask: Button
-    private lateinit var listViewTasks: ListView
+    private lateinit var editTextTarefa: EditText
+    private lateinit var botaoAdicionar: Button
+    private lateinit var listViewTarefa: ListView
+    private lateinit var botaoVoltar: ImageButton
 
-    private val tasks = mutableListOf<String>()
+    private val tarefa = mutableListOf<String>()
     private lateinit var adapter: ArrayAdapter<String>
 
     @SuppressLint("MissingInflatedId")
@@ -30,36 +32,42 @@ class Anotacoes : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        editTextTask = findViewById(R.id.editTextTask)
-        buttonAddTask = findViewById(R.id.buttonAddTask)
-        listViewTasks = findViewById(R.id.listViewTasks)
+        editTextTarefa = findViewById(R.id.editTextTarefa)
+        botaoAdicionar = findViewById(R.id.botaoAdicionar)
+        listViewTarefa = findViewById(R.id.listViewTarefa)
 
-        // Configurar o adapter para a ListView
-        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, tasks)
-        listViewTasks.adapter = adapter
+        // Configurar adapter para a ListView (usado para comunicar entre a lista de string e a ListView)
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, tarefa)
+        listViewTarefa.adapter = adapter
 
-        // Adicionar tarefa ao clicar no botão
-        buttonAddTask.setOnClickListener {
+
+        botaoAdicionar.setOnClickListener {
             addTask()
         }
 
-        // Remover tarefa ao clicar na lista
-        listViewTasks.setOnItemClickListener { _, _, position, _ ->
-            removeTask(position)
+        // Remover tarefa
+        listViewTarefa.setOnItemClickListener { _, _, position, _ -> //só quero utilizar o parâmetro position e ignorar os outros
+            removerTarefa(position)
+        }
+
+        botaoVoltar = findViewById(R.id.botaoVoltar)
+
+        botaoVoltar.setOnClickListener {
+            finish()
         }
     }
 
     private fun addTask() {
-        val taskText = editTextTask.text.toString()
-        if (taskText.isNotEmpty()) {
-            tasks.add(taskText) // Adiciona a tarefa à lista
-            adapter.notifyDataSetChanged() // Atualiza a ListView
-            editTextTask.text.clear() // Limpa o campo de entrada
+        val textTarefa = editTextTarefa.text.toString()
+        if (textTarefa.isNotEmpty()) {
+            tarefa.add(textTarefa) // Adicionar tarefa à lista
+            adapter.notifyDataSetChanged() // Atualizar ListView
+            editTextTarefa.text.clear() // Limpar campo de entrada para permitir novo (editText)
         }
     }
 
-    private fun removeTask(position: Int) {
-        tasks.removeAt(position) // Remove a tarefa da lista
-        adapter.notifyDataSetChanged() // Atualiza a ListView
+    private fun removerTarefa(position: Int) {
+        tarefa.removeAt(position) // Remove a tarefa da lista na posição selecionada
+        adapter.notifyDataSetChanged() // Atualiza ListView para saber que foi apagado
     }
 }

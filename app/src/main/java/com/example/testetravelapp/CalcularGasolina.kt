@@ -3,6 +3,7 @@ package com.example.testetravelapp
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
@@ -18,6 +19,7 @@ class CalcularGasolina : AppCompatActivity() {
     private lateinit var botaoCalcule: Button
     private lateinit var textoResult: TextView
     private lateinit var botaoVoltar: ImageButton
+    private lateinit var checkBoxCaminhoVolta: CheckBox
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,9 +38,10 @@ class CalcularGasolina : AppCompatActivity() {
         editTextPreco = findViewById(R.id.editTextPreco)
         botaoCalcule = findViewById(R.id.botaoCalcule)
         textoResult = findViewById(R.id.textoResult)
+        checkBoxCaminhoVolta = findViewById(R.id.checkBoxCaminhoVolta)
 
         botaoCalcule.setOnClickListener {
-            calculateCost()
+            calcularCusto()
         }
 
         botaoVoltar = findViewById(R.id.botaoVoltar)
@@ -47,22 +50,28 @@ class CalcularGasolina : AppCompatActivity() {
             finish()
         }
     }
-    private fun calculateCost() {
-        // Obtém os valores das entradas
+    private fun calcularCusto() {
+
         val distancia = editTextDistancia.text.toString().toDoubleOrNull()
         val consumo = editTextConsumo.text.toString().toDoubleOrNull()
         val preco = editTextPreco.text.toString().toDoubleOrNull()
 
-        // Verifica se os valores são válidos
+
         if (distancia != null && consumo != null && preco != null) {
-            // Calcula o custo total
-            val litros = distancia / consumo // Litros necessários para a viagem
+            var distanciaTotal = distancia
+
+            // Verificar se o caminho de volta foi confirmado
+            if (checkBoxCaminhoVolta.isChecked) {
+                distanciaTotal *= 2 // Dobra a distância
+            }
+
+            val litros = distanciaTotal / consumo // Litros necessários para a viagem
             val total = litros * preco // Custo total da viagem
 
-            // Exibe o resultado
-            textoResult.text = "Custo Total: R$ ${"%.2f".format(total)}"
+
+            textoResult.text = "Custo Total: R$ ${"%.2f".format(total)}\nLitros Consumidos: ${"%.2f".format(litros)} L"
         } else {
-            // Exibe uma mensagem de erro se os valores forem inválidos
+
             textoResult.text = "Por favor, preencha todos os campos corretamente."
         }
     }
