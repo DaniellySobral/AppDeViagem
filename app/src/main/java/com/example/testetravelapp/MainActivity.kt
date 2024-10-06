@@ -84,6 +84,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, CalcularGasolina::class.java)
 
             startActivity(intent)
+        }
+
+        botaoAnotacao.setOnClickListener {
+            val intent = Intent(applicationContext, Anotacoes::class.java)
+
+            startActivity(intent)
 
         }
 

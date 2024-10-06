@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TesteTravelApp"
         tools:targetApi="31">
         <activity
+            android:name=".Anotacoes"
+            android:exported="false" />
+        <activity
             android:name=".CalcularDolar"
             android:exported="false" />
         <activity
